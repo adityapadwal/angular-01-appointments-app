@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // This is a decorator that marks a class as an Angular component and provides metadata about the component.
 @Component({
@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'appointments-app'; // This is just a property of the component class.
+  // This is a property of the parent omponent
+  parentProp: string = 'Property from Parent Component'; 
+
+  // Property to told datat received from the child component
+  receivedFromChildComponentProp: string = "";
+
+  // Event handler function to handle event emitted from child component
+  handleChildComponentEvent(modifiedPropFromChild: string) {
+    this.receivedFromChildComponentProp = this.receivedFromChildComponentProp.concat(modifiedPropFromChild);
+  }
 }
