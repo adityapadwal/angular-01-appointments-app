@@ -1,3 +1,28 @@
-<p>Displaying parentProp in child component: {{parentProp}}</p>
+<p>appointment-list works!</p>
 
-<button (click)="onSave()">Send data up</button>
+<div>
+  <input [(ngModel)]="newAppointmentTitle" type="text" placeholder="Appointment description">
+  <br>
+  <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date">
+  <br>
+  <button (click)="addAppointment()">Add Appointment</button>
+</div>
+
+<br><br>
+
+<div *ngIf="appointments.length > 0">
+  <ul>
+    <li *ngFor="let appointment of appointments">
+      <div>
+        <p>{{appointment.id}}</p>
+        <p>{{appointment.title}}</p>
+        <p>{{appointment.date | date: 'dd.MM.yyyy'}}</p>
+        <button (click)="deleteAppointment(appointment.id)">Remove</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <button (click)="test()">Log appointments</button>
+</div>

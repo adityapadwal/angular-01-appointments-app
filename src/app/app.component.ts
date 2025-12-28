@@ -7,14 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // This is a property of the parent omponent
-  parentProp: string = 'Property from Parent Component'; 
-
-  // Property to told datat received from the child component
-  receivedFromChildComponentProp: string = "";
-
-  // Event handler function to handle event emitted from child component
-  handleChildComponentEvent(modifiedPropFromChild: string) {
-    this.receivedFromChildComponentProp = this.receivedFromChildComponentProp.concat(modifiedPropFromChild);
-  }
+  title = 'appointments-app';
 }
